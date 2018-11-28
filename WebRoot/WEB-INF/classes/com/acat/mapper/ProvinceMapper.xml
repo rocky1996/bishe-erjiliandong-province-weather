@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.acat.mapper.ProvinceMapper">  
+	<select id="findCityByProvince" parameterType="int" resultType="map">
+		select c.city from cities c inner join provinces p on c.city_id=p.id and p.id = #{id}
+	</select>
+	
+	<select id="findProvinceId" parameterType="string" resultType="int">
+		select id from provinces where province=#{province}
+	</select>
+	
+	<select id="findAll" resultType="map">
+		select province from provinces
+	</select>
+</mapper>
+
